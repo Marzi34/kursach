@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отклик на объект {{ property.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index/css/detail.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Навигация -->
+    </nav>
+
+    <div class="container">
+        <h1>Отклик на объект {{ property.title }}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.message.label }}
+                <br>
+                {{ form.message }}
+            </div>
+            <button type="submit">Отправить отклик</button>
+        </form>
+
+        {% if form.errors %}
+            <div class="error">
+                <p>Пожалуйста, исправьте следующие ошибки:</p>
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

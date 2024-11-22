@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.navbar-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Используем Flexbox для выравнивания элементов */
+    justify-content: space-between; /* Разделяем элементы между началом и концом */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.navbar li {
+    margin-right: 10px; /* Отступ между элементами списка */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.end-block {
+    margin-left: auto; /* Сдвигаем блок вправо */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.plus-zag {
+    text-align: center;
+}

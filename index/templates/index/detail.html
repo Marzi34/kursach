@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купить {{ property.rooms }}-комнатную квартиру</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index/css/detail.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><a href="/" class="navbar-block">Движ</a></li>
+            <li><a href="/catalog/" class="navbar-block">Услуги</a></li>
+            <li style="display: {% if user.is_superuser %} block {% else %} none {% endif%}" >
+                <a href="/admin/" class="navbar-block">Админка</a>
+            </li>
+            <div class="end-block">
+                <li>  {% if user.is_authenticated %}
+                    <span>Привет, <a href="{% url 'profile' %}">{{ user.username }}!</a></span>
+                    <a href="{% url 'logout' %}">Выйти</a>
+                    {% else %}
+                    <a href="{% url 'login' %}">Войти</a>
+                    <a href="{% url 'register' %}">Регистрация</a>
+                    {% endif %}
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="head">
+            <div class="head-title">Продажа {{ property.rooms }}-комнатной квартиры, {{ property.size }} M<sup>2</sup></div>
+            <div class="slider">
+                <div class="slides">
+                {% for image in property.images.all %}
+                    <div class="slide">
+                        <img src="{{ image.image.url }}" alt="{{ image.title }}" style="width: 100%;">
+                    </div>
+                {% endfor %}
+                </div>
+            <button class="button prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="button next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+            <div class="head-price">{{ property.price }} ₽</div>
+            <div class="address">{{ property.address }}
+                <br>
+                <a href="{% url 'submit_form' property_id=property.id %}" class="otcklick">Откликнуться</a>
+            </div>
+        </div>
+    </div>
+
+<script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+
+        slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+    }
+
+    function changeSlide(step) {
+        showSlide(currentSlide + step);
+    }
+
+    // Показываем первый слайд
+    showSlide(currentSlide);
+        }
+</script>
+
+</body>
+</html>

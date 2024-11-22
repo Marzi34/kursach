@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог домов</title>
+      {% load static %}
+    <link rel="stylesheet" href="{% static 'index/css/catalog.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><a href="/" class="navbar-block">Движ</a></li>
+            <li><a href="/catalog/" class="navbar-block">Услуги</a></li>
+            <li style="display: {% if user.is_superuser %} block {% else %} none {% endif%}" >
+                <a href="/admin/" class="navbar-block">Админка</a>
+            </li>
+            <div class="end-block">
+                <li>  {% if user.is_authenticated %}
+                    <span>Привет, <a href="{% url 'profile' %}">{{ user.username }}!</a></span>
+                    <a href="{% url 'logout' %}">Выйти</a>
+                    {% else %}
+                    <a href="{% url 'login' %}">Войти</a>
+                    <a href="{% url 'register' %}">Регистрация</a>
+                    {% endif %}
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </li>
+            </div>
+        </ul>
+    </nav>
+    <h1>Список недвижимости</h1>
+    <div class="content">
+        <form method="get" class="filter" id="filterForm">
+            <div class="form_field">Тип: {{ form.property_type }} </div>
+            <div class="form_field">Состояние: {{ form.condition }} </div>
+            <div class="form_field">Минимальная цена: {{ form.min_price }} </div>
+            <div class="form_field">Максимальная цена: {{ form.max_price }} </div>
+            <div class="form_field">Минимальные размер: {{ form.min_size }} </div>
+            <div class="form_field">Максимальный размер: {{ form.max_size }} </div>
+            <div class="form_field">Минимально комнат: {{ form.min_rooms }} </div>
+            <div class="form_field">Максимально комнат: {{ form.max_rooms }} </div>
+            <button type="submit">Фильтровать</button>
+        </form>
+        <div class="house-list">
+            {% for property in properties %}
+                <div class="house-item">
+                    <div class="image-container">
+                        {% if property.images.all %}
+                            <img src="{{ property.images.first.image.url }}" alt="{{ property.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="house-info">
+                        <div>
+                            <div class="about-title"><a href="{% url 'detail_view' property.id %}" target="_blank">{{ property.title }}</a></div>
+                            <p>Адрес: {{ property.address }}</p>
+                            <p>{{ property.description }}</p>
+                        </div>
+                    </div>
+                    <div class="house-query">
+                        <div class="query-price">{{ property.price }} ₽</div>
+                    </div>
+                </div>
+            {% empty %}
+                <li>Недвижимость не найдена.</li>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

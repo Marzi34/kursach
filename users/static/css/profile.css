@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.navbar-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Используем Flexbox для выравнивания элементов */
+    justify-content: space-between; /* Разделяем элементы между началом и концом */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.navbar li {
+    margin-right: 10px; /* Отступ между элементами списка */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.end-block {
+    margin-left: auto; /* Сдвигаем блок вправо */
+}
+
+.email-form {
+    color: gray;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+a.button {
+    padding: 1px 2px;
+    border: 1px outset buttonborder;
+    border-radius: 2px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+}
+
+.buttons {
+    margin-top: 10px;
+}
