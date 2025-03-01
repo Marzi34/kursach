@@ -35,7 +35,7 @@ class Query(models.Model):
         ('rejected', 'Отказано')
     ]
     query_date = models.DateField()
-    status = models.CharField(max_length=144)
+    status = models.CharField(max_length=144, choices=STATUS_CHOICES)
     message = models.TextField(null=True)
     user = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     property = models.ForeignKey(Property, on_delete=models.CASCADE)

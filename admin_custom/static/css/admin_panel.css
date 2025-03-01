@@ -1,0 +1,45 @@
+.pickmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio-group {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+}
+
+.radio-button {
+    padding: 8px 30px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.radio-button:hover {
+    background-color: #e2e6ea;
+}
+
+.radio-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+}

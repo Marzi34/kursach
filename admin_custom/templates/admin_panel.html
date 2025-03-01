@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/admin_panel.css' %}">
+<div class="pickmenu">
+    <div class="radio-group">
+        <div class="radio-button" data-value="Недвижимость"><a href="{% url 'houses_list' %}" target="_blank">Недвижимость</a></div>
+        <div class="radio-button" data-value="Запросы"><a href="{% url 'queries_list' %}" target="_blank">Запросы</a></div>
+    </div>
+</div>
+
+{% endblock %}

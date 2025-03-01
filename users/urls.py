@@ -5,6 +5,6 @@ from .views import CustomLogoutView
 urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_view, name='login'),
-    path('logout/', CustomLogoutView.as_view(), name='logout'),
+    path('logout/', CustomLogoutView.as_view(next_page='/'), name='logout'),
     path('profile/', profile_view, name='profile'),
 ]

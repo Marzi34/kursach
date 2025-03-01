@@ -4,33 +4,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
-.navbar-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex; /* Используем Flexbox для выравнивания элементов */
-    justify-content: space-between; /* Разделяем элементы между началом и концом */
-    align-items: center; /* Центрируем элементы по вертикали */
-}
-
-.navbar li {
-    margin-right: 10px; /* Отступ между элементами списка */
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-}
-
-.end-block {
-    margin-left: auto;
-}
-
 .head {
     display: grid;;
     grid-template-columns: repeat(2, 1fr);
@@ -83,7 +56,7 @@ body {
 }
 
 .head-price {
-    font-size: 30px; /* Размер шрифта */
+    font-size: 30px;
     text-align: left;
     padding: 10px;
     justify-self: start;
@@ -92,8 +65,8 @@ body {
     grid-row: 1 / 2;
 }
 
-.address {
-    font-size: 18px; /* Размер шрифта */
+.price_f_metr {
+    font-size: 18px;
     text-align: left;
     padding: 10px;
     justify-self: start;
@@ -102,8 +75,18 @@ body {
     grid-row: 2 / 3;
 }
 
+.address {
+    font-size: 18px;
+    text-align: left;
+    padding: 10px;
+    justify-self: start;
+    margin-left: 100px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
 .otcklick {
-    display: inline-block; /* Позволяет задать размеры и отступы */
+    display: inline-block;
     padding: 10px 20px; /* Отступы внутри кнопки */
     background-color: #add8e6; /* Светло-синий цвет фона */
     color: white; /* Цвет текста */

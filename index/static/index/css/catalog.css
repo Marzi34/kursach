@@ -1,62 +1,20 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-}
-
-a {
-    text-decoration: none;
-    color: #0047AB;
-}
-
-.navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
-.navbar-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex; /* Используем Flexbox для выравнивания элементов */
-    justify-content: space-between; /* Разделяем элементы между началом и концом */
-    align-items: center; /* Центрируем элементы по вертикали */
-}
-
-.navbar li {
-    margin-right: 10px; /* Отступ между элементами списка */
-}
-
-.navbar a {
-    color: white;
-}
-
-.end-block {
-    margin-left: auto; /* Сдвигаем блок вправо */
-}
-
-.navbar a:hover {
-    color: #FFD700; /* Золотистый цвет при наведении */
-}
-
 .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px; /* Отступы между элементами */
+    grid-gap: 20px;
     padding: 20px;
 }
 
 .filter {
     display: flex;
-    flex-wrap: wrap; /* Позволяем элементам переходить на новую строку */
-    gap: 15px; /* Отступы между элементами */
-    grid-column: 1 / -1; /* Занимает всю ширину */
+    flex-wrap: wrap;
+    gap: 15px;
+    grid-column: 1 / -1;
     margin-bottom: 20px;
 }
 
 .form_field {
-    min-width: 150px; /* Минимальная ширина для каждого поля */
+    min-width: 150px;
 }
 
 .house-list {
@@ -65,25 +23,25 @@ a {
 
 .house-item {
     display: flex;
-    width: 100%; /* Занимает всю ширину контейнера */
+    width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 10px;
-    border: 1px solid #ccc; /* Добавляем рамку для визуального разделения */
-    border-radius: 5px; /* Скругляем углы */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем тень для глубины */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .image-container {
-    width: 300px; /* Задайте нужную ширину */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-    overflow: hidden; /* Скрыть переполнение */
+    width: 300px;
+    height: auto;
+    overflow: hidden;
     margin-right: 25px;
 }
 
 .image-container img {
-    width: 100%; /* Масштабировать изображение до ширины контейнера */
-    height: auto; /* Сохранить пропорции */
+    width: 100%;
+    height: auto;
 }
 
 .house-info {
@@ -113,17 +71,17 @@ a {
     color:#0047AB;
 }
 
-button {
-    padding: 10px 15px; /* Добавляем отступы для кнопок */
-    margin-left: 10px; /* Отступ между кнопками */
-    border: none; /* Убираем рамку */
-    border-radius: 5px; /* Скругляем углы */
-    background-color: #0047AB; /* Цвет фона */
-    color: white; /* Цвет текста */
-    cursor: pointer; /* Указываем, что это кнопка */
-    transition: background-color 0.3s; /* Плавный переход цвета фона */
+.filter_button {
+    padding: 3px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0047AB;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #FFD700; /* Изменение цвета фона при наведении */
+    background-color: #FFD700;
 }

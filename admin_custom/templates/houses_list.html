@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/houses_list.css' %}">
+<div class="pickmenu">
+    <div class="radio-group">
+        <div class="radio-button" data-value="Недвижимость"><a href="{% url 'houses_list' %}" target="_blank">Недвижимость</a></div>
+        <div class="radio-button" data-value="Запросы"><a href="{% url 'queries_list' %}" target="_blank">Запросы</a></div>
+    </div>
+</div>
+<div class="creation_form">
+    <a class="creation_form" href="{% url 'creation_form' %}">Создать</a>
+</div>
+<div class="list_of_houses">
+    {% for house in houses %}
+        <div class="list_element"> {{ house.id }} {{ house.title }} {{ house.price }} <a href="{% url 'property_edit' house.id %}" target="_blank">Перейти к объекту</a> <a class="delete" href="{% url 'remove_btn' house.id %}">Удалить</a> </div>
+    {% empty %}
+        <p>Квартиры не найдены</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

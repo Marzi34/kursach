@@ -5,6 +5,7 @@ body {
 }
 
 
+
 .navbar {
     background-color: #333;
     color: white;
@@ -14,13 +15,13 @@ body {
 .navbar-list {
     list-style-type: none;
     padding: 0;
-    display: flex; /* Используем Flexbox для выравнивания элементов */
-    justify-content: space-between; /* Разделяем элементы между началом и концом */
-    align-items: center; /* Центрируем элементы по вертикали */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar li {
-    margin-right: 10px; /* Отступ между элементами списка */
+    margin-right: 10px;
 }
 
 .navbar a {
@@ -28,8 +29,18 @@ body {
     text-decoration: none;
 }
 
+.navbar a:hover {
+    color: #FFD700;
+}
+
+.logout_button {
+    color: white;
+    text-decoration: none;
+    background-color: #333
+}
+
 .end-block {
-    margin-left: auto; /* Сдвигаем блок вправо */
+    margin-left: auto;
 }
 
 .image-container {

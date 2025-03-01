@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_custom',
     'index',
     'users',
     'django.contrib.admin',
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'nedvish-store',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -98,9 +99,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
     # {
     #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     # },
@@ -160,4 +161,3 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert alert-warning',
     messages.ERROR: 'alert alert-danger',
 }
-

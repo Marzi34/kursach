@@ -17,7 +17,6 @@ def register(request):
             login(request, user)
             client = Client(user=user)
             client.save()
-            print("p")
             return redirect('/')
         else:
             print(form.errors)
@@ -40,7 +39,7 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'form': form})
 
 class CustomLogoutView(auth_views.LogoutView):
-    def dispatch(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         messages.success(request, "Вы успешно вышли из системы.")
         return super().dispatch(request, *args, **kwargs)
 

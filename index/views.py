@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from index.models import Property, PropertyImage
+from users.models import Client
 from .forms import QueryForm
 from .forms import PropertyFilterForm
 
@@ -17,16 +18,18 @@ def catalog(request):
 def detail_view(request, property_id):
     property = get_object_or_404(Property, id=property_id)
     images = PropertyImage.objects.all()
-    return render(request, 'index/detail.html', {'property': property, 'images': images})
+    price_f_metr = property.price // property.size
+    return render(request, 'index/detail.html', {'property': property, 'images': images, 'price_f_metr': price_f_metr})
 
 def submit_form(request, property_id):
     property_instance = get_object_or_404(Property, id=property_id)
+    user_instance = get_object_or_404(Client, user=request.user.id)
 
     if request.method == "POST":
         form = QueryForm(request.POST)
         if form.is_valid():
             query = form.save(commit=False)
-            query.user = request.user
+            query.user = user_instance
             query.property = property_instance
             query.query_date = timezone.now().date()
             query.status = "Рассматриваемый"

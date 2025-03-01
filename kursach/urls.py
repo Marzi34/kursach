@@ -22,8 +22,10 @@ from django.urls import path, include
 from index.views import index, detail_view, catalog, submit_form, property_list
 
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site .urls),
+    path('adminchik/', include('admin_custom.urls')),
     path('', index, name='index'),
     path('catalog/', property_list, name='catalog'),
     path('property/<int:property_id>/', detail_view, name='detail_view'),

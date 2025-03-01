@@ -13,12 +13,15 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                {% if form.username.errors %}
+                {% if form.errors %}
                     <div class="errorlist">
-                    {% for error in form.username.errors %}
-                        <p>{{ error }}</p>
-                    {% endfor %}
-                    </div>
+                        <strong>Ошибки:</strong>
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    <li> {{ errors.0 }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                 {% endif %}
                 {{ form.username.label }}
                 <br>
